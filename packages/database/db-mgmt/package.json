@@ -1,0 +1,25 @@
+{
+  "name": "@verbose-happiness/db-mgmt",
+  "version": "1.0.0",
+  "description": "Database management tool",
+  "scripts": {
+    "local": "pnpm docker:up",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:gen": "pnpm run typeorm migration:generate -d ./data-source.ts -p",
+    "migration:run": "pnpm run typeorm migration:run -d ./data-source.ts"
+  },
+  "author": "Ben Hansell",
+  "license": "ISC",
+  "dependencies": {
+    "@verbose-happiness/db-conn": "latest",
+    "pg": "^8.8.0",
+    "typeorm": "^0.3.10"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.9",
+    "typescript": "4.8.4",
+    "ts-node": "^10.9.1"
+  }
+}

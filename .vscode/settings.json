@@ -1,0 +1,10 @@
+{
+    "editor.insertSpaces": false,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": true,
+    "editor.formatOnPaste": true,
+    "editor.acceptSuggestionOnCommitCharacter": true,
+    "autoimport.useSemiColon": false,
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single"
+}
