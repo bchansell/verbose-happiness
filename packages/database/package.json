@@ -10,7 +10,9 @@
     "docker:down": "docker-compose -f src/resources/docker-compose.yml down",
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:gen": "pnpm run typeorm migration:generate -d ./src/data-source.ts -p",
-    "migration:run": "pnpm run typeorm migration:run -d ./src/data-source.ts"
+    "migration:run": "pnpm run typeorm migration:run -d ./src/data-source.ts",
+    "lint:fmt": "pnpm prettier --check",
+    "lint:fix": "pnpm prettier -w . && pnpm eslint --quiet --fix ."
   },
   "dependencies": {
     "@verbose-happiness/util-errors": "latest",

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint:fmt": "pnpm prettier --check",
+    "lint:fix": "pnpm prettier -w . && pnpm eslint --quiet --fix ."
   },
   "dependencies": {
     "@chakra-ui/button": "^2.0.11",

@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "./src/index.ts",
   "scripts": {
+    "lint:fmt": "pnpm prettier --check",
+    "lint:fix": "pnpm prettier -w . && pnpm eslint --quiet --fix ."
   },
   "license": "ISC"
 }

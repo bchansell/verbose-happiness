@@ -17,6 +17,8 @@
       "dependsOn": ["build", "test", "lint"],
       "outputs": []
     },
-		"local": {}
+		"local": {},
+    "lint:fmt": {},
+    "lint:fix": {}
   }
 }

@@ -5,7 +5,9 @@
   "main": "./src/index.ts",
   "scripts": {
     "start": "nodemon -w src --ext ts --exec ts-node src/index.ts",
-    "dev": "nodemon -w src --ext ts --exec ts-node src/mock-server.ts"
+    "dev": "nodemon -w src --ext ts --exec ts-node src/mock-server.ts",
+    "lint:fmt": "pnpm prettier --check",
+    "lint:fix": "pnpm prettier -w . && pnpm eslint --quiet --fix ."
   },
   "keywords": [],
   "author": "",
