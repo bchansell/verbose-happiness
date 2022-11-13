@@ -10,9 +10,9 @@
     "url": "git+https://github.com/bchansell/verbose-happiness.git"
   },
   "scripts": {
-    "local": "turbo run local",
-    "lint:fmt": "turbo run lint:fmt",
-    "lint:fix": "turbo run lint:fix"
+    "local": "pnpm run local",
+    "lint:fmt": "pnpm -r lint:fmt",
+    "lint:fix": "pnpm -r lint:fix"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
