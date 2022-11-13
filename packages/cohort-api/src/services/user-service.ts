@@ -1,13 +1,16 @@
-import { User } from '@verbose-happiness/database';
-import { Service } from 'typedi';
+import { Candidate } from '@verbose-happiness/database';
+import { Inject, Service } from 'typedi';
 import { Repository } from 'typeorm';
-import { UserInput } from '../types';
+import { CandidateInput } from '../types';
 
 @Service()
-export class UserService {
-  constructor(private readonly userRepository: Repository<User>) {}
+export class CandidateService {
+  constructor(
+    @Inject()
+    private readonly userRepository: Repository<Candidate>
+  ) { }
 
-  async createUser(userInput: UserInput) {
+  async createUser(userInput: CandidateInput) {
     const user = this.userRepository.create({
       ...userInput,
     });

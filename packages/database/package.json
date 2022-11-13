@@ -9,8 +9,8 @@
     "docker:up": "docker-compose -f src/resources/docker-compose.yml up -d ",
     "docker:down": "docker-compose -f src/resources/docker-compose.yml down",
     "typeorm": "typeorm-ts-node-commonjs",
-    "migration:gen": "pnpm run typeorm migration:generate -d ./src/data-source.ts -p",
-    "migration:run": "pnpm run typeorm migration:run -d ./src/data-source.ts",
+    "migration:gen": "pnpm run typeorm migration:generate -d ./src/connections/postgres-db-migration.ts -p",
+    "migration:run": "pnpm run typeorm migration:run -d ./src/connections/postgres-db-migration.ts",
     "lint:fmt": "pnpm prettier --check",
     "lint:fix": "pnpm prettier -w . && pnpm eslint --quiet --fix ."
   },
@@ -26,7 +26,8 @@
   "devDependencies": {
     "@types/node": "18.11.9",
     "esbuild": "^0.15.13",
-    "typescript": "4.8.4",
-    "ts-node": "^10.9.1"
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "4.8.4"
   }
 }

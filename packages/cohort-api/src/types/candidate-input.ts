@@ -2,11 +2,13 @@ import 'reflect-metadata';
 import { InputType, Field } from 'type-graphql';
 import { Min } from 'class-validator';
 import AddressInput from './address-input';
-import { User } from '@verbose-happiness/database';
+import { Candidate } from '@verbose-happiness/database';
 
 // Omitting address since the two entities are created at the same time
 @InputType({ description: 'New user data' })
-export default class UserInput implements Omit<Partial<User>, 'address'> {
+export default class CandidateInput
+  implements Omit<Partial<Candidate>, 'address'>
+{
   @Field()
   firstName: string;
 

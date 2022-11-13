@@ -1,12 +1,15 @@
 import 'reflect-metadata';
-import { Entity, Column, JoinColumn, OneToOne } from 'typeorm';
+import { Entity, Column, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Field, ObjectType } from 'type-graphql';
 import { Address } from './address';
-import { BaseEntity } from './base-entity';
 
 @Entity()
 @ObjectType()
-export class User extends BaseEntity {
+export class Candidate {
+  @Field()
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
   // graphql
   @Field()
   // typeorm

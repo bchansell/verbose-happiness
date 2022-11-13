@@ -1,12 +1,16 @@
 import 'reflect-metadata';
-import { Entity, Column, OneToOne } from 'typeorm';
+import { Entity, Column, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Field, ObjectType } from 'type-graphql';
-import { User } from './user';
-import { BaseEntity } from './base-entity';
+import { Candidate } from './candidate';
 
+// TODO: start creating generics?
 @Entity()
 @ObjectType()
-export class Address extends BaseEntity {
+export class Address {
+  @Field()
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
   @Field()
   @Column()
   firstLine: string;
@@ -30,6 +34,6 @@ export class Address extends BaseEntity {
   // bi directional -> bit strange getting user from address
   // proving out functionality
   // TODO: lazy loading
-  @OneToOne((type) => User, (user) => user.address)
-  user: User;
+  @OneToOne((type) => Candidate, (user) => user.address)
+  user: Candidate;
 }
