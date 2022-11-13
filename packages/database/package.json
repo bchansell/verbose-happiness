@@ -1,0 +1,30 @@
+{
+  "name": "@verbose-happiness/database",
+  "version": "1.0.0",
+  "description": "database access",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "pnpm esbuild ./src/* --bundle --outfile=out.js --platform=node --target=node16.14.0 --watch",
+    "local": "pnpm docker:up && pnpm migration:run",
+    "docker:up": "docker-compose -f src/resources/docker-compose.yml up -d ",
+    "docker:down": "docker-compose -f src/resources/docker-compose.yml down",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:gen": "pnpm run typeorm migration:generate -d ./src/data-source.ts -p",
+    "migration:run": "pnpm run typeorm migration:run -d ./src/data-source.ts"
+  },
+  "dependencies": {
+    "@verbose-happiness/util-errors": "latest",
+    "class-validator": "^0.13.2",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1",
+    "typedi": "^0.10.0",
+    "typeorm": "^0.3.10",
+    "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.9",
+    "esbuild": "^0.15.13",
+    "typescript": "4.8.4",
+    "ts-node": "^10.9.1"
+  }
+}

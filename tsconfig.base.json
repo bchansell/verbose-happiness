@@ -8,5 +8,8 @@
     "noUnusedLocals": true,
     "sourceMap": true,
     "moduleResolution": "node",
+    "module": "commonjs",
+    "strict": true,
+    "strictPropertyInitialization": false
   }
 }
