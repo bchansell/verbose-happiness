@@ -7,6 +7,7 @@ async function createSchema() {
   const schema = await buildSchema({
     resolvers: [UserResolver],
     container: Container,
+    emitSchemaFile: true,
   });
 
   // TODO: refactor out hack to intialise
