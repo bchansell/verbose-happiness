@@ -8,15 +8,17 @@ import { Service } from 'typedi';
 @Service()
 @Resolver()
 export class UserResolver {
-  constructor(private readonly userService: CandidateService) {}
+  constructor(private readonly candidateService: CandidateService) {}
 
   @Query(() => [Candidate])
-  users() {
-    return this.userService.findAll();
+  candidates() {
+    return this.candidateService.findAll();
   }
 
   @Mutation(() => Candidate)
-  async createUser(@Arg('data') data: CandidateInput) {
-    return this.userService.createUser(data);
+  async createCandidates(@Arg('data') data: CandidateInput) {
+    return this.candidateService.createUser(data);
   }
+
+  // TODO: nested types?
 }

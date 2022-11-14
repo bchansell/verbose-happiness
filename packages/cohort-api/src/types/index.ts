@@ -1,4 +1,2 @@
-import CandidateInput from './candidate-input';
-import AddressInput from './address-input';
-
-export { CandidateInput, AddressInput };
+export * from './candidate-input';
+export * from './address-input';

@@ -1,6 +1,9 @@
 import 'reflect-metadata';
+import { Service } from 'typedi';
 import { DataSource } from 'typeorm';
+import { entities } from '../entities';
 
+@Service()
 export class PostgresDb extends DataSource {
   constructor() {
     super({
@@ -11,7 +14,9 @@ export class PostgresDb extends DataSource {
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      entities: ['src/entities/**/*.ts'],
+      // TODO: figure out path glob 
+      // entities: ['src/entities/**/*.ts'],
+      entities,
       migrations: ['src/migrations/**/*.ts'],
     });
   }

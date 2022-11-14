@@ -1,2 +1,3 @@
 export * from './entities';
-export * from './connections/postgres-db';
+export * from './connections';
+export * from './repositories';

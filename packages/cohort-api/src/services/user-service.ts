@@ -1,29 +1,28 @@
-import { Candidate } from '@verbose-happiness/database';
-import { Inject, Service } from 'typedi';
-import { Repository } from 'typeorm';
+import 'reflect-metadata';
+import { CandidateRepository } from '@verbose-happiness/database';
+import { Service } from 'typedi';
 import { CandidateInput } from '../types';
 
 @Service()
 export class CandidateService {
   constructor(
-    @Inject()
-    private readonly userRepository: Repository<Candidate>
+    private readonly candidateRepository: CandidateRepository
   ) { }
 
   async createUser(userInput: CandidateInput) {
-    const user = this.userRepository.create({
+    const user = this.candidateRepository.create({
       ...userInput,
     });
 
-    return this.userRepository.save(user);
+    return this.candidateRepository.save(user);
   }
 
   async findAll() {
-    return this.userRepository.find();
+    return this.candidateRepository.find();
   }
 
   async findUserById(id: string) {
-    const user = this.userRepository.findOne({
+    const user = this.candidateRepository.findOne({
       where: { id },
     });
 

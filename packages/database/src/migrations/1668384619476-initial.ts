@@ -1,8 +1,7 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-// TODO: this did not rename the table, nor does it clean up the old table :shrug
-export class renameUserToCandidate1668381239964 implements MigrationInterface {
-    name = 'renameUserToCandidate1668381239964'
+export class initial1668384619476 implements MigrationInterface {
+    name = 'initial1668384619476'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
@@ -18,6 +17,17 @@ export class renameUserToCandidate1668381239964 implements MigrationInterface {
             )
         `);
         await queryRunner.query(`
+            CREATE TABLE "address" (
+                "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
+                "firstLine" character varying NOT NULL,
+                "secondLine" character varying NOT NULL,
+                "postCode" boolean NOT NULL,
+                "county" boolean NOT NULL,
+                "country" boolean NOT NULL,
+                CONSTRAINT "PK_d92de1f82754668b5f5f5dd4fd5" PRIMARY KEY ("id")
+            )
+        `);
+        await queryRunner.query(`
             ALTER TABLE "candidate"
             ADD CONSTRAINT "FK_3bfaf1e659c0c5048df8a24007c" FOREIGN KEY ("addressId") REFERENCES "address"("id") ON DELETE NO ACTION ON UPDATE NO ACTION
         `);
@@ -26,6 +36,9 @@ export class renameUserToCandidate1668381239964 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
             ALTER TABLE "candidate" DROP CONSTRAINT "FK_3bfaf1e659c0c5048df8a24007c"
+        `);
+        await queryRunner.query(`
+            DROP TABLE "address"
         `);
         await queryRunner.query(`
             DROP TABLE "candidate"
