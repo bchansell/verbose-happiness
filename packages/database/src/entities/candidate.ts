@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import { Entity, Column, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Field, ObjectType } from 'type-graphql';
 import { Address } from './address';
+import { Lazy } from '../helpers';
 
 @Entity()
 @ObjectType()
@@ -42,6 +43,7 @@ export class Candidate {
   @OneToOne(() => Address, (address) => address.user, {
     cascade: true,
     nullable: true,
+    lazy: true
   })
-  address?: Address;
+  address?: Lazy<Address>;
 }

@@ -18,6 +18,7 @@ export class PostgresDb extends DataSource {
       // entities: ['src/entities/**/*.ts'],
       entities,
       migrations: ['src/migrations/**/*.ts'],
+      logging: true
     });
   }
 }

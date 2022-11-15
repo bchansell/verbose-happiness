@@ -25,7 +25,6 @@ export class CandidateService {
     const user = this.candidateRepository.findOne({
       where: { id },
     });
-
     return user;
   }
 }
